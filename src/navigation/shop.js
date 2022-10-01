@@ -1,4 +1,5 @@
 import React from "react";
+import { isAndroid } from "../utils";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Categories, Products, Product } from "../screens";
 import { colors } from "../constants/themes";
@@ -9,7 +10,11 @@ const ShopNavigator = () => {
     <Stack.Navigator
       initialRouteName="Categories"
       screenOptions={{
-        headerTintColor: colors.text,
+        headerTintColor: "#000000",
+        color: colors.primary,
+        headerStyle: {
+          backgroundColor: isAndroid ? colors.primary : colors.secondary,
+        },
         headerTitleStyle: {
           fontFamily: "OpensansBold",
         },
@@ -19,7 +24,7 @@ const ShopNavigator = () => {
         name="Categories"
         component={Categories}
         options={{
-          title: "Categorias",
+          title: "Categories",
         }}
       />
       <Stack.Screen

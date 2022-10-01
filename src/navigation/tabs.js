@@ -5,7 +5,7 @@ import CartNavigator from "./cart";
 import ShopNavigator from "./shop";
 import OrdersNavigator from "./orders";
 import { colors } from "../constants/themes";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Feather, Foundation } from "@expo/vector-icons";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -36,11 +36,31 @@ const Tabs = () => {
       <BottomTab.Screen
         name="OrderTab"
         component={OrdersNavigator}
+        options={{
+          title: "My Orders",
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "list-sharp" : "list-outline"}
+              size={25}
+              color={colors.primary}
+            />
+          ),
+        }}
       ></BottomTab.Screen>
 
       <BottomTab.Screen
         name="CartTab"
         component={CartNavigator}
+        options={{
+          title: "Cart",
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "cart" : "cart-outline"}
+              size={22}
+              color={colors.primary}
+            />
+          ),
+        }}
       ></BottomTab.Screen>
     </BottomTab.Navigator>
   );
