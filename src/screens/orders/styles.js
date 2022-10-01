@@ -7,10 +7,4 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  containerList: {
-    flex: 1,
-  },
-  title: {
-    fontFamily: "Opensans",
-  },
 });

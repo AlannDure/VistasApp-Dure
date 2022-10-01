@@ -1,18 +1,27 @@
 import React from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, FlatList } from "react-native";
 import { styles } from "./styles";
+import { ProductItem } from "../../components";
 
-const Products = ({ navigation }) => {
+import { products } from "../../constants/data";
+const Products = ({ navigation, route }) => {
+  const { categoryId } = route.params;
+
+  const productsFiltered = products.filter(
+    (product) => product.categoryId === categoryId
+  );
+  const onSelected = (item) => {
+    navigation.navigate("Product", { name: item.title, productId: item.id });
+  };
+  const renderItem = ({ item }) => (
+    <ProductItem item={item} onSelected={onSelected} />
+  );
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Products Screen</Text>
-      <Button
-        title="To Product ->"
-        onPress={() => {
-          navigation.navigate("Product");
-        }}
-      />
-    </View>
+    <FlatList
+      data={productsFiltered}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id.toString()}
+    />
   );
 };
 
