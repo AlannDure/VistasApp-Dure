@@ -2,11 +2,18 @@ import React from "react";
 import { View, Text, Button, FlatList } from "react-native";
 import { CategoryItem } from "../../components";
 import { styles } from "./styles";
-import { categories } from "../../constants/data";
+/* import { categories } from "../../constants/data";
+ */
+import { useSelector, useDispatch } from "react-redux";
+import { selectCategory } from "../../store/actions/category.actions";
 
-const Categories = ({ navigation }) => {
+const Categories = ({ navigation, route }) => {
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.category.categories);
+
   const onSelected = (item) => {
-    navigation.navigate("Products", { name: item.title, categoryId: item.id });
+    dispatch(selectCategory(item.id));
+    navigation.navigate("Products", { name: item.title });
   };
   const renderItem = ({ item }) => (
     <CategoryItem item={item} onSelected={onSelected} />
