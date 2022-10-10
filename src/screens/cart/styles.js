@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
   },
   disabledButtonConfirm: {
-    backgroundColor: colors.black,
+    backgroundColor: "#d3d3d3",
     borderRadius: 5,
     paddingHorizontal: 20,
     paddingVertical: 15,

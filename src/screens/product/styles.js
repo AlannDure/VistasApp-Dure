@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../constants/themes";
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,5 +10,8 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "Opensans",
+  },
+  price: {
+    fontFamily: "OpensansBold",
   },
 });
