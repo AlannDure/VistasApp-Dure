@@ -33,7 +33,15 @@ const Cart = ({ navigation }) => {
         {/* <Text>LOOK</Text> */}
       </View>
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.buttonConfirm} onPress={() => null}>
+        <TouchableOpacity
+          style={
+            items.length === 0
+              ? styles.disabledButtonConfirm
+              : styles.buttonConfirm
+          }
+          onPress={onConfirm}
+          disabled={items.length === 0}
+        >
           <Text style={styles.textButtonConfirm}>Confirm</Text>
           <View style={styles.totalContainer}>
             <Text style={styles.totalTitle}>Total: </Text>

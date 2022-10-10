@@ -30,6 +30,15 @@ export const styles = StyleSheet.create({
     fontFamily: "Opensans",
     fontSize: 14,
   },
+  disabledButtonConfirm: {
+    backgroundColor: colors.black,
+    borderRadius: 5,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
   totalContainer: {
     flex: 0.4,
     flexDirection: "row",
